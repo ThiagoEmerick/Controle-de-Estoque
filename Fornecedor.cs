@@ -76,6 +76,17 @@ class Fornecedor{
    public void AssociarEstoque(Estoque est){
     estoque=est;
   }
+
+  public bool verificarCodigo(List <Fornecedor> p , string cod){
+    List <string> codigos = new List <string> ();
+    foreach(Fornecedor vc in p){
+      codigos.Add(vc.getcodproduto());
+    }
+    if (codigos.IndexOf(cod)!= -1){
+      return false;
+    }
+    return true;
+  }
   
 
   public string ResumoCompra(){

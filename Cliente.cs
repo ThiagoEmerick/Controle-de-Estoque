@@ -51,4 +51,7 @@ class Cliente{
   public string ResumoVenda(){
     return string.Format("Nome do Cliente é: {0} \n O email é: {1} \n A quantidade vendida foi de: {2}\n E o valor de revenda é de:{3}\n E o valor total da venda é de: {4}",nomecliente,emailcliente,quantvenda,valorrevenda,CustoVenda());
   }
+  public string posvenda(){
+    return string.Format("Nome do Cliente é: {0} \n O email é: {1} \n A quantidade vendida foi de: {2}\n E o valor de revenda é de:{3}\n E o valor total da venda é de: {4}",nomecliente,emailcliente,quantvenda,valorrevenda,CustoVenda());
+  }
 }
