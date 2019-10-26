@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 class MainClass {
 
@@ -14,13 +16,15 @@ class MainClass {
 
     while (repeticao == true){
     
-    Console.WriteLine ("Digite 1 para comprarmos um produto: \n 2 para vendermos um produto em estoque: \n 3 para ver o estoque:");
+    Console.WriteLine ("Digite: \n 1 para comprarmos um produto. \n 2 Para vendermos um produto em estoque. \n 3 Para ver o estoque. \n 4 Para excluir os arquivos");
     int opcao = Int32.Parse(Console.ReadLine());
     
 
     switch(opcao){
       
       case 1:
+
+        
         Console.WriteLine("Entre com o código do produto:");
         string codproduto = Console.ReadLine();
         
@@ -30,8 +34,6 @@ class MainClass {
         
         Console.WriteLine("Qual produto esta sendo adquirido:");
         string produto = Console.ReadLine();
-
-        
        
         Console.WriteLine("Quantidade sendo adquirida:");
         int quantidade = int.Parse(Console.ReadLine());
@@ -40,6 +42,8 @@ class MainClass {
         float valorproduto = float.Parse(Console.ReadLine());
 
         Fornecedor listaforne = fornecedor.ComprarProduto(empresa,produto,codproduto,quantidade,valorproduto);
+
+        fornecedor.ControleDeCompras(empresa,produto,codproduto,quantidade,valorproduto);
 
         estoque.MostrarFornecedor();
       }else{
@@ -70,6 +74,8 @@ class MainClass {
 
         Cliente retirarproduto = new Cliente(nomecliente,emailcliente,quantvenda,valorrevenda);
 
+        retirarproduto.ControleDeVendas(retirarproduto);
+
         retirarproduto.posvenda();
         Console.WriteLine(retirarproduto.ResumoVenda());
 
@@ -79,6 +85,13 @@ class MainClass {
        estoque.MostrarFornecedor();
         
         break;
+      
+      case 4:
+
+      File.Delete("compras.txt");
+      File.Delete("vendas.txt");
+      
+      break;
        
       default:
         break;

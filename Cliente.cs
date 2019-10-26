@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 class Cliente{
   private string nomecliente;
@@ -53,5 +55,27 @@ class Cliente{
   }
   public string posvenda(){
     return string.Format("Nome do Cliente é: {0} \n O email é: {1} \n A quantidade vendida foi de: {2}\n E o valor de revenda é de:{3}\n E o valor total da venda é de: {4}",nomecliente,emailcliente,quantvenda,valorrevenda,CustoVenda());
+  }
+  public void ControleDeVendas(Cliente c){
+    
+    StreamWriter sw = new StreamWriter("vendas.txt", true);
+
+    string str = string.Empty;
+    int qtd;
+    float val;
+
+    str = c.getnomecliente();
+    sw.WriteLine(("nome: ")+str);
+    
+    str = c.getemailcliente();
+    sw.WriteLine(("Email: ")+str);
+
+    qtd = c.getquantvenda();
+    sw.WriteLine(("Quantidade: ")+qtd);
+
+    val = c.getvalorrevenda();
+    sw.WriteLine(("ValorRevenda: ")+val);
+
+    sw.Close();
   }
 }

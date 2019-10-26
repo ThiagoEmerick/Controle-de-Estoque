@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 class Fornecedor{
   Estoque  estoque = new Estoque();
@@ -95,4 +97,28 @@ class Fornecedor{
   public string MostrarNaLista(){
     return string.Format("Nome da Empresa é: {0} \n O produto adquirido foi: {1} \n O Código do produto é:{2} \n A quantidade foi de: {3}\n E o valor do produto é de:{4} \n E o valor total da compra é de:{5} \n ============================ \n",empresa,produto,codproduto,quant,valorproduto,CustoCompra());
   }
+
+  public void ControleDeCompras(string e, string p, string c, int q, float v){
+
+    StreamWriter sw = new StreamWriter("compras.txt", true);
+
+    string str = string.Empty;
+    int iq;
+    float fv;
+
+    str = e;
+    sw.WriteLine(("Empresa: ")+str);
+    str = p;
+    sw.WriteLine(("Produto: ")+str);
+    str = c;
+    sw.WriteLine(("Codigo do Produto: ")+str);
+    iq = q;
+    sw.WriteLine(("Quantidade: ")+iq);
+    fv = v;
+    sw.WriteLine(("Valor do Produto: ")+fv);
+
+    sw.Close();
+
+  }
+
 }
