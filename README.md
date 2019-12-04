@@ -1,3 +1,3 @@
-#Gerenciamento de venda de mercadorias
+#Gerenciamento de vendas de Mercadorias
 
 #Projeto 2
