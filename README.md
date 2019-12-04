@@ -1,2 +1,3 @@
-# Controle-de-Estoque
-Projeto do André
+#Gerenciamento de venda de mercadorias
+
+#Projeto 2
