@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,7 +11,6 @@ class MainClass {
 
     Estoque estoque = new Estoque();
     fornecedor.AssociarEstoque(estoque);
-
 
     bool repeticao = true;
 
@@ -43,7 +41,7 @@ class MainClass {
         Console.WriteLine("Valor de cada produto:");
         float valorproduto = float.Parse(Console.ReadLine());
 
-        Fornecedor listaforne = fornecedor.ComprarProduto(empresa,produto,codproduto,quantidade,valorproduto);
+        Fornecedor listaforne = fornecedor.ComprarProduto(produto,codproduto,quantidade,valorproduto);
 
         fornecedor.ControleDeCompras(empresa,produto,codproduto,quantidade,valorproduto);
 
@@ -54,6 +52,9 @@ class MainClass {
       break;
 
       case 2:
+        Console.WriteLine("digite a opcao 1 para empresa e 2 para autonomo :");
+        string opcao1 = Console.ReadLine();
+      if (opcao1 == "1" ){
         
         estoque.MostrarFornecedor();
         
@@ -72,14 +73,26 @@ class MainClass {
         
         Console.WriteLine("Quantidade que irá comprar:");
         int quantvenda =int.Parse (Console.ReadLine());
+
+        Console.WriteLine("Digite seu cnpj:");
+        string cnpj = Console.ReadLine();
+
+        Empresa novocliente = new Empresa(nomecliente,emailcliente,quantvenda,valorrevenda,cnpj);
+        
         estoque.retirar(dadosCodigo,quantvenda);
+     
 
-        Cliente retirarproduto = new Cliente(nomecliente,emailcliente,quantvenda,valorrevenda);
+        novocliente.ControleDeVendas(novocliente);
 
-        retirarproduto.ControleDeVendas(retirarproduto);
+        novocliente.posvenda();
 
-        retirarproduto.posvenda();
-        Console.WriteLine(retirarproduto.ResumoVenda());
+
+
+
+      }
+         
+        
+       
 
         break;
 
@@ -97,13 +110,7 @@ class MainClass {
        
       default:
         break;
-    }
-
-      Console.WriteLine("Deseja fazer outro pedido? (S/N):");
-       string rep = Console.ReadLine();
-       if (rep == "N" || rep =="n"){
-         repeticao = false;
-       }
+      }
     }
   }
 }
