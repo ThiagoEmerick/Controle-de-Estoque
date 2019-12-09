@@ -6,7 +6,6 @@ using System.Text;
 class Fornecedor{
   Estoque  estoque = new Estoque();
 
-
   private string produto;
   private string codproduto;
   private int quant;
@@ -45,7 +44,6 @@ class Fornecedor{
     return valorproduto;
   }
 
-  
   public void setproduto(string prod){
     produto = prod;
   }
@@ -82,12 +80,11 @@ class Fornecedor{
     return true;
   }
   
-
   public string ResumoCompra(){
     return string.Format("\n O produto adquirido foi: {0} \n O Código do produto é:{1} \n 1A quantidade foi de: {2}\n E o valor total da compra é de:{3}",produto,codproduto,quant,valorproduto,CustoCompra());
   }
   public string MostrarNaLista(){
-    return string.Format("\n O produto adquirido foi: {0} \n O Código do produto é:{1} \n A quantidade foi de: {2}\n E o valor do produto é de:{3} \n E o valor total da compra é de:{4} \n ============================ \n",produto,codproduto,quant,valorproduto,CustoCompra());
+    return string.Format("\n O produto é: {0} \n O Código do produto é:{1} \n A quantidade em estoque é: {2}\n E o valor do produto é de:{3} \n E o valor total do produto é de:{4} \n ============================ \n",produto,codproduto,quant,valorproduto,CustoCompra());
   }
 
   public void ControleDeCompras(string e, string p, string c, int q, float v){
@@ -112,5 +109,4 @@ class Fornecedor{
     sw.Close();
 
   }
-
 }

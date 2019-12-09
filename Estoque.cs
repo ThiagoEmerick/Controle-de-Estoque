@@ -23,19 +23,16 @@ class Estoque{
     }
   }
 
-
   public  bool  MaiorqueZERO(int quantvenda){
       foreach (Fornecedor p in forne){
       if (quantvenda < p.getquant()){
         return true;
         }
       }
-
       return false;
   }
   public void retirar(string bc, int quantvenda){
     foreach (Fornecedor p in forne){
-
       
       if (bc == p.getcodproduto()){
         if (MaiorqueZERO(quantvenda)){
@@ -43,13 +40,9 @@ class Estoque{
           Console.WriteLine(ToString());
         }else{
           Console.WriteLine("Quantidade invalida");
-        }
-        
+        } 
       }
-      }
-     
-
-
+     }
   }
 }
 

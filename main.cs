@@ -52,7 +52,7 @@ class MainClass {
       break;
 
       case 2:
-        Console.WriteLine("digite a opcao 1 para empresa e 2 para autonomo :");
+        Console.WriteLine("digite a opcao 1 para empresa e 2 para autonomo:");
         string opcao1 = Console.ReadLine();
       if (opcao1 == "1" ){
         
@@ -85,15 +85,38 @@ class MainClass {
         novocliente.ControleDeVendas(novocliente);
 
         novocliente.posvenda();
-
-
-
-
-      }
-         
+      }if (opcao1 == "2" ){
         
-       
+        estoque.MostrarFornecedor();
+        
+        Console.WriteLine("digite o codigo:");
+        string dadosCodigo = Console.ReadLine();
+        estoque.BuscarEstoque(dadosCodigo);
+        
+        Console.WriteLine("Nome do Cliente:");
+        string nomecliente = Console.ReadLine();
+        
+        Console.WriteLine("E-mail do Cliente:");
+        string emailcliente = Console.ReadLine();
 
+        Console.WriteLine("Valor de revenda:");
+        float valorrevenda = float.Parse (Console.ReadLine());
+        
+        Console.WriteLine("Quantidade que irá comprar:");
+        int quantvenda =int.Parse (Console.ReadLine());
+
+        Console.WriteLine("Digite seu cep:");
+        string cnpj = Console.ReadLine();
+
+        Empresa novocliente = new Empresa(nomecliente,emailcliente,quantvenda,valorrevenda,cnpj);
+        
+        estoque.retirar(dadosCodigo,quantvenda);
+     
+
+        novocliente.ControleDeVendas(novocliente);
+
+        novocliente.posvenda();
+      }
         break;
 
       case 3:
